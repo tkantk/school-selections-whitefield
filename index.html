@@ -10,22 +10,13 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
     
-    <!-- Chosen Palette: Calm Harmony (Warm Neutrals) -->
-    <!-- Application Structure Plan: The application is designed as an interactive dashboard to simplify the school selection process. The structure consists of a main header, a filtering control panel, and a two-column content area. The left column features a dynamic bar chart for quick visual comparison of school ratings, while the right column displays detailed school information in a filterable card-based list. This dashboard approach was chosen because it allows users to see both a high-level overview (the chart) and detailed information (the cards) simultaneously. The core interactions—filtering by curriculum and distance—dynamically update both the chart and the card list, providing immediate feedback and facilitating a seamless, user-driven exploration. This is more effective than a static list as it empowers the user to narrow down options based on their specific criteria (e.g., 'Only show me CBSE schools within 5km'). The user flow is simple: view all options, apply filters to refine the list, and review the details of relevant schools. -->
-    <!-- Visualization & Content Choices: 
-        1. School Ratings Comparison: Report Info: School names and their parent ratings. -> Goal: Compare -> Viz/Presentation Method: Horizontal Bar Chart. -> Interaction: The chart is dynamically updated based on the active filters for curriculum and distance. Hovering over a bar reveals the exact rating in a tooltip. -> Justification: A horizontal bar chart is excellent for comparing ranked values across categories with potentially long labels (school names). It provides a quick, intuitive visual answer to "which schools are best rated?". -> Library/Method: Chart.js/Canvas.
-        2. Detailed School Information: Report Info: Comprehensive details for each school (address, curriculum, distance, highlights). -> Goal: Organize & Inform -> Viz/Presentation Method: A responsive grid of content cards. Each card contains all information for one school. -> Interaction: The visibility of cards is controlled by the curriculum and distance filter buttons. -> Justification: Cards are a modern, scannable, and mobile-friendly way to present distinct chunks of information. They are superior to a dense table for readability and visual organization. -> Library/Method: HTML/Tailwind CSS + Vanilla JS for filtering logic.
-        3. Filtering Controls: Report Info: School attributes like curriculum and distance. -> Goal: Compare & Organize -> Viz/Presentation Method: A set of interactive buttons grouped by category (Curriculum, Distance). -> Interaction: Clicking a button filters the dataset. An 'active' state visually indicates the current filter. -> Justification: Buttons are a universally understood UI element for triggering actions. Grouping them makes the filtering options clear and easy to use. -> Library/Method: HTML/Tailwind CSS + Vanilla JS.
-    -->
-    <!-- CONFIRMATION: NO SVG graphics used. NO Mermaid JS used. -->
-    
     <style>
         body {
             font-family: 'Inter', sans-serif;
             background-color: #FDFBF8;
             color: #3f3f46;
         }
-        .chart-container {
+       .chart-container {
             position: relative;
             width: 100%;
             max-width: 800px;
@@ -35,19 +26,40 @@
             max-height: 500px;
         }
         @media (min-width: 768px) {
-            .chart-container {
+           .chart-container {
                 height: 500px;
                 max-height: 600px;
             }
         }
-        .filter-btn {
+       .filter-btn {
             transition: all 0.2s ease-in-out;
         }
-        .filter-btn.active {
+       .filter-btn.active {
             background-color: #0d9488;
             color: #ffffff;
             font-weight: 600;
             box-shadow: 0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1);
+        }
+        details summary {
+            list-style: none; /* Remove default arrow */
+            cursor: pointer;
+            padding: 0.5rem 0;
+            position: relative;
+        }
+        details summary::-webkit-details-marker {
+            display: none; /* Remove default arrow for Webkit browsers */
+        }
+        details summary::after {
+            content: '+';
+            position: absolute;
+            right: 0;
+            top: 50%;
+            transform: translateY(-50%);
+            transition: transform 0.2s ease-in-out;
+        }
+        details[open] summary::after {
+            content: '-';
+            transform: translateY(-50%) rotate(0deg);
         }
     </style>
 </head>
@@ -103,88 +115,7 @@
     </div>
 
     <script>
-        const schoolData = [
-            {
-                name: "VIBGYOR High School, Kadugodi",
-                address: "Kadugodi, Bengaluru",
-                curriculum: "CBSE",
-                distance: 7.2,
-                rating: 4.8,
-                highlights: "Focus on holistic development, modern infrastructure, and a wide range of extracurriculars."
-            },
-            {
-                name: "The Deens Academy, Whitefield",
-                address: "ECC Road, Whitefield, Bengaluru",
-                curriculum: "CBSE",
-                distance: 9.5,
-                rating: 4.7,
-                highlights: "Known for strong academics, experienced faculty, and a large, well-equipped campus."
-            },
-            {
-                name: "Chrysalis High, Kadugodi",
-                address: "Opp. HP Petrol Bunk, Kadugodi",
-                curriculum: "ICSE",
-                distance: 6.8,
-                rating: 4.6,
-                highlights: "Focus on inquiry-based learning and personalized attention for students."
-            },
-            {
-                name: "NPS Whitefield",
-                address: "Channasandra Main Rd, Whitefield",
-                curriculum: "CBSE",
-                distance: 10.1,
-                rating: 4.9,
-                highlights: "Part of the prestigious NPS group, known for academic excellence and high standards."
-            },
-            {
-                name: "Whitefield Global School",
-                address: "Near Hope Farm Circle, Whitefield",
-                curriculum: "IGCSE",
-                distance: 8.5,
-                rating: 4.5,
-                highlights: "Offers international curriculum (Cambridge), focusing on global perspectives and critical thinking."
-            },
-            {
-                name: "New Baldwin International Residential School",
-                address: "Ayappanagar, KR Puram",
-                curriculum: "ICSE",
-                distance: 4.5,
-                rating: 4.2,
-                highlights: "Offers both day scholar and residential facilities with a large campus."
-            },
-            {
-                name: "Orchids The International School",
-                address: "Kadugodi - Budigere Rd, Seegehalli",
-                curriculum: "CBSE",
-                distance: 3.1,
-                rating: 4.4,
-                highlights: "Integrates technology in education with a focus on STEM and robotics."
-            },
-            {
-                name: "Narayana e-Techno School",
-                address: "Hoskote Road, Medahalli",
-                curriculum: "CBSE",
-                distance: 2.5,
-                rating: 4.0,
-                highlights: "Strong emphasis on competitive exam preparation alongside the standard curriculum."
-            },
-            {
-                name: "Glentree Academy",
-                address: "Kanakasree Layout, Medahalli",
-                curriculum: "CBSE",
-                distance: 2.8,
-                rating: 4.3,
-                highlights: "Focuses on a balanced approach between academics, sports, and arts."
-            },
-            {
-                name: "Silveroaks International School",
-                address: "Hennur-Bagalur Main Road",
-                curriculum: "IB",
-                distance: 12.0,
-                rating: 4.7,
-                highlights: "Offers the International Baccalaureate (IB) curriculum, known for its rigorous, inquiry-led approach."
-            }
-        ];
+        const schoolData =;
 
         let chartInstance = null;
         let activeFilters = {
@@ -199,13 +130,14 @@
         const ctx = document.getElementById('schoolsChart').getContext('2d');
 
         function getDistanceCategory(distance) {
-            if (distance <= 5) return '< 5 km';
+            if (distance <= 2) return '< 2 km';
+            if (distance > 2 && distance <= 5) return '2-5 km';
             if (distance > 5 && distance <= 10) return '5-10 km';
             return '> 10 km';
         }
 
         function createFilterButtons() {
-            const curricula = ['All', ...new Set(schoolData.map(s => s.curriculum))];
+            const curricula =.sort();
             curricula.forEach(c => {
                 const button = document.createElement('button');
                 button.textContent = c;
@@ -216,7 +148,7 @@
                 curriculumEl.appendChild(button);
             });
 
-            const distances = ['All', '< 5 km', '5-10 km', '> 10 km'];
+            const distances = ['All', '< 2 km', '2-5 km', '5-10 km', '> 10 km'];
             distances.forEach(d => {
                 const button = document.createElement('button');
                 button.textContent = d;
@@ -232,8 +164,12 @@
             schoolListEl.innerHTML = '';
             
             const filteredData = schoolData.filter(school => {
-                const curriculumMatch = activeFilters.curriculum === 'All' || school.curriculum === activeFilters.curriculum;
-                const distanceMatch = activeFilters.distance === 'All' || getDistanceCategory(school.distance) === activeFilters.distance;
+                const curriculumMatch = activeFilters.curriculum === 'All' |
+
+| school.curriculum.includes(activeFilters.curriculum);
+                const distanceMatch = activeFilters.distance === 'All' |
+
+| getDistanceCategory(school.distance) === activeFilters.distance;
                 return curriculumMatch && distanceMatch;
             });
             
@@ -257,7 +193,24 @@
                                 <span class="font-semibold bg-teal-50 text-teal-800 py-1 px-3 rounded-full">${school.curriculum}</span>
                                 <span class="font-semibold bg-blue-50 text-blue-800 py-1 px-3 rounded-full">${school.distance} km away</span>
                             </div>
-                            <p class="text-gray-600 mt-3 text-sm">${school.highlights}</p>
+                            <p class="text-gray-600 mt-3 text-sm"><strong>Highlights:</strong> ${school.highlights}</p>
+                            
+                            <details class="mt-4">
+                                <summary class="cursor-pointer font-semibold text-teal-700 hover:text-teal-800">View More Details</summary>
+                                <div class="details-content pt-2 text-sm text-gray-700 space-y-2">
+                                    ${school.details.philosophy? `<p><strong>Educational Philosophy:</strong> ${school.details.philosophy}</p>` : ''}
+                                    ${school.details.facilities? `<p><strong>Facilities:</strong> ${school.details.facilities}</p>` : ''}
+                                    ${school.details.parent_feedback? `<p><strong>Parent Feedback:</strong> ${school.details.parent_feedback}</p>` : ''}
+                                    ${school.details.admission_process? `<p><strong>Admission Process:</strong> ${school.details.admission_process}</p>` : ''}
+                                    ${school.details.fee_structure? `<p><strong>Fee Structure:</strong> ${school.details.fee_structure}</p>` : ''}
+                                    <p class="font-semibold mt-3">Contact Information:</p>
+                                    <ul>
+                                        ${school.phone? `<li><strong>Phone:</strong> ${school.phone}</li>` : ''}
+                                        ${school.email? `<li><strong>Email:</strong> <a href="mailto:${school.email}" class="text-blue-600 hover:underline">${school.email}</a></li>` : ''}
+                                        ${school.website? `<li><strong>Website:</strong> <a href="http://${school.website}" target="_blank" class="text-blue-600 hover:underline">${school.website}</a></li>` : ''}
+                                    </ul>
+                                </div>
+                            </details>
                         </div>
                     `;
                     schoolListEl.innerHTML += card;
@@ -279,14 +232,7 @@
                 type: 'bar',
                 data: {
                     labels: sortedData.map(s => s.name),
-                    datasets: [{
-                        label: 'Parent Rating',
-                        data: sortedData.map(s => s.rating),
-                        backgroundColor: 'rgba(15, 118, 110, 0.6)',
-                        borderColor: 'rgba(13, 94, 88, 1)',
-                        borderWidth: 1,
-                        borderRadius: 4
-                    }]
+                    datasets:
                 },
                 options: {
                     indexAxis: 'y',
@@ -350,9 +296,9 @@
             const filterType = button.dataset.type;
             const filterValue = button.dataset.filter;
 
-            activeFilters[filterType] = filterValue;
+            activeFilters = filterValue;
 
-            document.querySelectorAll(`.filter-btn[data-type="${filterType}"]`).forEach(btn => {
+            document.querySelectorAll(`.filter-btn`).forEach(btn => {
                 btn.classList.remove('active');
             });
             button.classList.add('active');
