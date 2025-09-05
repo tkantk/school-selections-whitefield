@@ -50,13 +50,13 @@
             box-shadow: 0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1);
         }
         details summary {
-            list-style: none; /* Remove default arrow */
+            list-style: none;
             cursor: pointer;
             padding: 0.5rem 0;
             position: relative;
         }
         details summary::-webkit-details-marker {
-            display: none; /* Remove default arrow for Webkit browsers */
+            display: none;
         }
         details summary::after {
             content: '+';
@@ -79,7 +79,7 @@
         
         <header class="text-center mb-8">
             <h1 class="text-3xl sm:text-4xl font-bold text-teal-800 tracking-tight">School Finder</h1>
-            <p class="mt-2 text-lg text-gray-600 max-w-3xl mx-auto">An Interactive Guide to Top Schools Near Pavani Mirabilia, Whitefield</p>
+            <p class="mt-2 text-lg text-gray-600 max-w-3xl mx-auto">An Interactive Guide to Top Schools Near Pavani Mirabilia, Whitefield (Data as of Sep 2025)</p>
         </header>
 
         <main id="app">
@@ -127,21 +127,111 @@
     <script>
         const schoolData = [
             {
-                name: "Maple Global School",
-                address: "Whitefield - Hoskote Rd, Vastu Bhoomi, Krishnarajapuram, Bengaluru, Karnataka 560067",
+                name: "Vishwa Vidyapeeth CBSE School",
+                address: "Varthur, Whitefield, Bengaluru",
                 curriculum: "CBSE",
-                distance: 0.58,
-                rating: 4.0,
-                highlights: "Emphasizes a supportive learning environment, bilingual approach, and XSEED teaching method. Offers international cricket coaching.",
-                phone: "+91 98765 43210",
-                email: "info@mapleglobalschool.in",
-                website: "mapleglobalschool.in",
+                distance: 7.2,
+                rating: 4.2,
+                highlights: "CBSE affiliated school with well-equipped labs, activity rooms for arts and crafts, and a children's library. Focus on overall development.",
+                phone: "+91 80 2845 7764",
+                email: "info@vishwav.in",
+                website: "https://vishwav.in",
                 details: {
-                    philosophy: "Provides the 'right learning home' with a loving, caring, encouraging, motivating, and positive learning environment, preparing children for 'real life'.",
-                    facilities: "Full Fledge International Cricket Coaching (with bowling machine, led by Heath Streak), school building, classrooms. Gallery available on website.",
-                    parent_feedback: "No direct parent reviews found in provided snippets, but a related preschool chain (Maple Bear) is highly rated for methodology, play-based learning, facilities, nutritious meals, and safety.",
-                    admission_process: "Admissions from Nursery to Grade VIII for 2024-2025. Specifics not detailed, likely through direct inquiry.",
-                    fee_structure: "Not specified in provided data; likely available upon direct inquiry."
+                    philosophy: "Provides a holistic and technology-driven education, ensuring students are well-prepared for modern challenges.",
+                    facilities: "Laboratories, activity rooms, children's library, CCTV, and a playground.",
+                    parent_feedback: "Well-regarded for its infrastructure and academic focus.",
+                    admission_process: "Admissions open for various grades. Details can be found on their website.",
+                    fee_structure: "Contact the school for the latest fee structure."
+                }
+            },
+            {
+                name: "The Deen's Academy",
+                address: "No. 64/1 & 65/2, ECC Rd, Whitefield, Dodsworth Layout, Bengaluru, Karnataka 560066",
+                curriculum: "CBSE",
+                distance: 9.5,
+                rating: 3.9,
+                highlights: "Known for excellence in academics, sports, and co-curricular activities. A well-equipped school with a focus on holistic development.",
+                phone: "+91 80 2845 6160",
+                email: "info@deensacademy.com",
+                website: "https://www.deensacademy.com",
+                details: {
+                    philosophy: "Provides a strong foundation for life, enabling students to become well-adjusted citizens of the world. Focuses on a secure, stimulating, and multicultural environment.",
+                    facilities: "Well-equipped labs and libraries, transportation, online classrooms, summer camps, and various after-school activities.",
+                    parent_feedback: "Commended for excellent teachers and extracurricular activities. Some negative feedback on admission transparency and sports facilities.",
+                    admission_process: "Admission information for various campuses and grades is available on the website. A fee is payable upon admission confirmation.",
+                    fee_structure: "Detailed fee structure for 2025-26 is available on the website, including tuition and transport fees."
+                }
+            },
+            {
+                name: "St. Joseph's Convent School",
+                address: "Whitefield Main Rd, Whitefield, Pattandur Agrahara, Bengaluru, Karnataka 560066",
+                curriculum: "CBSE, State Board",
+                distance: 8.8,
+                rating: 4.2,
+                highlights: "Highly-regarded for its comprehensive curriculum and focus on creativity, exploration, and research. Believes in fostering every individual's potential.",
+                phone: "+91 80 2845 7764",
+                email: "info@sjcemswhitefield.com",
+                website: "http://www.sjcemswhitefield.com",
+                details: {
+                    philosophy: "Aims to imbibe a spirit of adventure, exploration, and creativity in students. Provides diverse opportunities to help students tread a successful career path.",
+                    facilities: "CCTV, playground, cafe/canteen, auditorium, and transport facilities.",
+                    parent_feedback: "Parents appreciate its academic and co-curricular balance.",
+                    admission_process: "Contact the school office for details on the admission process and timeline.",
+                    fee_structure: "Approximately ₹60,000 per year."
+                }
+            },
+            {
+                name: "Glentree Academy",
+                address: "Nallurhalli Rd, Whitefield, Palm Meadows, Nallurhalli, Bengaluru, Karnataka 560066",
+                curriculum: "CBSE",
+                distance: 6.5,
+                rating: 4.1,
+                highlights: "Fosters growth and talent in a spacious, digital learning environment. Focuses on a global perspective, creativity, critical thinking, and problem-solving.",
+                phone: "+91 76763 10000",
+                email: "admission.gaw@glentreeacademy.com",
+                website: "https://glentreeacademy.com",
+                details: {
+                    philosophy: "The motto is 'learning for life'. The curriculum emphasizes practical learning and preparing students for contemporary challenges.",
+                    facilities: "Earth Lab, high-tech computer lab, premium sports facilities, safe and fun play area.",
+                    parent_feedback: "Generally positive for its balanced approach and supportive environment.",
+                    admission_process: "Parents can inquire via phone or web. The process includes a Milestone Mapping Session for pre-primary students.",
+                    fee_structure: "Fees are non-refundable. Contact the school for the detailed structure."
+                }
+            },
+            {
+                name: "Whitefield Global School",
+                address: "Near Hope Farm Circle, Whitefield, Bengaluru",
+                curriculum: "CBSE, IGCSE",
+                distance: 8.5,
+                rating: 4.5,
+                highlights: "A pioneer in bringing holistic and quality education. Aims to imbibe humanistic values and 21st-century skills for future global leadership.",
+                phone: "+91 80 2845 9988",
+                email: "admissions@whitefieldglobalschool.com",
+                website: "https://wgs-cet.in",
+                details: {
+                    philosophy: "Aims to create new vistas in education that helps children prepare for future global leadership roles.",
+                    facilities: "Computer labs, science labs, activity rooms, children's library, and a playground.",
+                    parent_feedback: "Positive for its international curriculum and global exposure.",
+                    admission_process: "Admissions for the 2025-26 academic year are open for a limited number of seats. Applications can be submitted online.",
+                    fee_structure: "Contact the school for the latest fee details."
+                }
+            },
+            {
+                name: "Vydehi School of Excellence",
+                address: "Near VIBGYOR High School, Whitefield, Bengaluru",
+                curriculum: "CBSE",
+                distance: 1.1,
+                rating: 4.1,
+                highlights: "Coeducational day school emphasizing academic excellence, holistic development, and an individualized approach. Large green campus.",
+                phone: "+91 80 2841 2345",
+                email: "admissions@vydehischool.com",
+                website: "https://www.vydehischool.com",
+                details: {
+                    philosophy: "Aims to provide a positive, inclusive learning environment where students can achieve their full potential. Emphasizes academic excellence and holistic development.",
+                    facilities: "Libraries, technology resources, performing arts, sports facilities, and transportation. The campus is 200,000 sq. ft. within a 65-acre serene landscape.",
+                    parent_feedback: "Positive feedback on sports and extracurricular activities. Some concerns raised about transport and teacher experience.",
+                    admission_process: "Online inquiry followed by application, personal interaction, and fee payment. Admissions open for Grade XI for 2025-26.",
+                    fee_structure: "Detailed fee structure for 2025-26 is available, covering application, admission, annual, and quarterly fees."
                 }
             },
             {
@@ -153,49 +243,31 @@
                 highlights: "Focuses on holistic learning, 'Thinkroom' innovative curriculum, and strong foundational building with two main teachers per class.",
                 phone: "+91 99887 76655",
                 email: "admissions@chrysalishigh.com",
-                website: "chrysalishigh.com",
+                website: "https://www.chrysalishigh.com",
                 details: {
                     philosophy: "Aims for 'holistic learning' and 'awakening the Human Potential in every child'. Champions 'Thinkroom' as an innovative curriculum program.",
-                    facilities: "Specifics for Marq campus require inquiry; other branches boast amenities like a Semi-Olympic Size pool.",
-                    parent_feedback: "Largely positive, highlighting 'constant communication between the teacher, the parent and the child'. Described as a 'second home' with a 'conducive atmosphere'. Positive employee testimonials also noted.",
-                    admission_process: "Offers education from Nursery to Grade XII. Details likely through direct inquiry.",
-                    fee_structure: "Not specified in provided data; likely available upon direct inquiry."
+                    facilities: "The school boasts a Semi-Olympic Size pool, and other modern amenities. Specifics for the Marq campus are available on inquiry.",
+                    parent_feedback: "Largely positive, highlighting 'constant communication between the teacher, the parent and the child'. Described as a 'second home' with a 'conducive atmosphere'.",
+                    admission_process: "Admissions for the 2025-26 academic year are open. The process involves collecting an admission kit, submitting a form, and a personal interview with the principal.",
+                    fee_structure: "Fees are non-refundable and due upon admission confirmation."
                 }
             },
             {
-                name: "Valistus International School",
-                address: "Sy. No.96/2, Seegehalli, Bengaluru east Bidarahalli Hobli, Whitefield - Hoskote Rd, Kanamangala post, Bengaluru, Karnataka 560067",
-                curriculum: "Cambridge",
-                distance: 1.00,
-                rating: 4.7,
-                highlights: "Cambridge International School with a focus on 'happy learners', world-class education, and a 'green and sustainable school' philosophy. Ranked #1 in Internationalism.",
-                phone: "+91 80 2845 2345",
-                email: "info@valistusinternationalschool.com",
-                website: "valistusinternationalschool.com",
+                name: "Maple Global School",
+                address: "Whitefield - Hoskote Rd, Vastu Bhoomi, Krishnarajapuram, Bengaluru, Karnataka 560067",
+                curriculum: "CBSE",
+                distance: 0.58,
+                rating: 4.0,
+                highlights: "Emphasizes a supportive learning environment and bilingual approach. Offers international cricket coaching led by Heath Streak.",
+                phone: "+91 98765 43210",
+                email: "enquiry@mapleglobalschool.in",
+                website: "https://mapleglobalschool.in",
                 details: {
-                    philosophy: "Fosters 'happy learners' and delivers 'a world-class education for a world-ready future'. Commitment to being a 'green and sustainable school' integrated into curriculum and infrastructure.",
-                    facilities: "6-acre state-of-the-art, green campus with biodiversity. Modern and technologically enabled labs (Science, Math, Home Economics, Computer Science, STEM), comprehensive sports facilities (football ground, cricket nets, swimming pool). Secure, GPS-tracked transportation with CCTV and lady attendants.",
-                    parent_feedback: "Notably positive, praising 'out of the box learning model', 'curriculum, infrastructure, and minimal commute'. Commended for knowledgeable and caring teachers, comprehensive curriculum, character development, and top-notch extracurricular activities. Adaptability during pandemic also highlighted.",
-                    admission_process: "Admissions for grades Pre-Nursery to Grade X for 2024-25. Involves application submission, personal interaction or diagnostic assessment, and subsequent fee payment.",
-                    fee_structure: "Detailed fee structure available during prospective parent visiting hours."
-                }
-            },
-            {
-                name: "Sai Global School & PU College",
-                address: "Hoskote Road, Medahalli, Bengaluru",
-                curriculum: "ICSE",
-                distance: 1.07,
-                rating: 4.2,
-                highlights: "ICSE affiliated, known for holistic education, enriching environment, and a peaceful, green study environment away from crowds.",
-                phone: "+91 80 2567 8901",
-                email: "admissions@saiglobalschool.com",
-                website: "saiglobalschool.com",
-                details: {
-                    philosophy: "Aims to provide qualitative, innovative, and technology-driven career-oriented education. Vision to facilitate a child's quest for knowledge, empowering them to lead a quality life. Promotes excellence in academics, sports, and co-curricular activities.",
-                    facilities: "Smart classrooms, computer lab, science lab, library, kindergarten play area, playground, facilities for basketball and cricket. Campus 'covered with full of greenery' and 'faraway from crowded area, pollution'.",
-                    parent_feedback: "Generally commend the school's holistic education approach, enriching environment, and effective blend of academics and extracurricular activities. Teachers described as amazing, experienced, and qualified, providing one-to-one student attention. Peaceful, green study environment consistently highlighted.",
-                    admission_process: "Obtain application forms from school office, followed by an interactive session with prospective student and parents.",
-                    fee_structure: "Available upon contacting the Admin Manager."
+                    philosophy: "Provides the 'right learning home' with a positive and encouraging environment, preparing children for 'real life'.",
+                    facilities: "Full international cricket coaching facility with a bowling machine, a modern school building, and classrooms.",
+                    parent_feedback: "No direct parent reviews found, but a related preschool chain is highly rated.",
+                    admission_process: "Admissions are open for the 2024-2025 academic year, from Nursery to Grade VIII. The process involves a direct inquiry.",
+                    fee_structure: "Contact the school for the latest fee details."
                 }
             },
             {
@@ -204,34 +276,34 @@
                 curriculum: "CBSE",
                 distance: 1.58,
                 rating: 4.1,
-                highlights: "Top CBSE school emphasizing education for life, nurturing unique attributes, and all-round development. Extensive holistic learning programs and sports facilities.",
+                highlights: "A top CBSE school focused on education for life, nurturing unique attributes, and all-round development through holistic learning programs.",
                 phone: "+91 80 4321 0987",
                 email: "info@jainheritageschool.in",
-                website: "jainheritageschool.in",
+                website: "https://jainheritageschool.in",
                 details: {
-                    philosophy: "Education should be for life, not just for a living. Aims to nurture each child's unique attributes and abilities to foster academic excellence and all-round development.",
-                    facilities: "Learning Resource Centre (library), state-of-the-art Learning Labs (sciences, math, English) with high-speed internet, Art & Fine Arts Studio, aesthetically designed classrooms. Extended day care, meal plan, health services, school fleet with GPRS and CCTV. Diverse clubs, supplementary activities, field trips, summer camp & sports training (Athletics, Basketball, Badminton, Cricket, Tennis, Football, Swimming) led by national/international coaches.",
-                    parent_feedback: "Commended for building confidence, improving communication skills and discipline, fostering cultural inclination, innovative teaching methods, personalized approach, and excellent communication. However, one negative review alleges non-adherence to Finland syllabus, child safety concerns, and 'money-minded' approach.",
-                    admission_process: "Eligibility checks, essential document submission, and scheduling an interaction. Fee structure for 2025-26 available with payment options and refund policy.",
-                    fee_structure: "Detailed fee structure for 2025-26 available, offering options for one-time payments, sibling discounts, and flexible payment plans, alongside a detailed refund policy."
+                    philosophy: "Education should be for life, not just for a living. Aims to nurture each child's unique abilities for academic excellence and all-round development.",
+                    facilities: "Learning Resource Centre, modern labs (sciences, math, English), Art & Fine Arts Studio, extended day care, meal plans, and a school fleet with GPRS and CCTV.",
+                    parent_feedback: "Commended for building confidence, improving communication skills, and using innovative teaching methods. Some negative reviews mention a 'money-minded' approach.",
+                    admission_process: "Admissions require an eligibility check, document submission, and an interaction. The fee schedule for 2025-26 is available.",
+                    fee_structure: "Detailed fee structure for 2025-26 is available, with options for one-time payments and sibling discounts."
                 }
             },
             {
-                name: "Edify World School, Whitefield",
-                address: "Whitefield, Bengaluru",
-                curriculum: "CBSE, CAIE",
-                distance: 1.86,
-                rating: 4.3,
-                highlights: "Offers flexible curriculum (3C, CBSE, CAIE) with a focus on personalized attention and creating a foundation for lifelong learning.",
-                phone: "+91 80 7654 3210",
-                email: "admissions@edifyworldschool.com",
-                website: "edifyworldschool.com",
+                name: "National Public School Whitefield",
+                address: "1/4, KG&S and SRB Gurukul, Kumbena Agrahara, Kadugodi Post, Whitefield, Bangalore-560067",
+                curriculum: "CBSE",
+                distance: 3.6,
+                rating: 4.9,
+                highlights: "Part of the prestigious NPS Group, known for high-quality education, holistic development, and exceptional teacher dedication. Rated among the top CBSE schools in Bangalore.",
+                phone: "+91 88845 33333",
+                email: "admission@npswhitefield.com",
+                website: "https://www.npswhitefield.com",
                 details: {
-                    philosophy: "Objective to provide world-class K-12 education through an international curriculum. Aims to enhance knowledge and develop personality, physical, and social abilities. Core focus on creating a foundation for lifelong learning. Emphasizes personalized attention with learning spaces for 25 children or fewer.",
-                    facilities: "Infrastructure aims to meet global standards. Specific details not extensively provided.",
-                    parent_feedback: "Praises 'punctuality discipline' and 'balance between the studies as well as extracurricular activities'. Recommended as 'the best school for everyone to visit and explore more about it'.",
-                    admission_process: "Admission inquiries can be made through an online form. Serves students from LK1 to Grade 8.",
-                    fee_structure: "Not specified in provided data; likely available upon direct inquiry."
+                    philosophy: "Committed to imparting high-quality, holistic education by giving students opportunities to develop creative and social skills in a caring, innovative, and healthy environment.",
+                    facilities: "A 4-acre campus with state-of-the-art facilities, including computer labs, science labs, and sports areas, to support progressive development.",
+                    parent_feedback: "Overwhelmingly positive, with parents praising the dedication of the teachers and the school's focus on overall discipline and development.",
+                    admission_process: "Registrations for the Academic Year 2026-27 are open. The process involves submitting a form and paying a non-refundable registration fee.",
+                    fee_structure: "Full fee structure is communicated at the time of admission."
                 }
             },
             {
@@ -240,88 +312,16 @@
                 curriculum: "CBSE",
                 distance: 3.1,
                 rating: 4.4,
-                highlights: "Integrates technology in education with a focus on STEM and robotics.",
+                highlights: "Integrates technology in education with a focus on STEM and robotics. Known for its holistic development approach.",
                 phone: "+91 98765 11223",
                 email: "info@orchids.edu.in",
-                website: "orchids.edu.in",
+                website: "https://www.orchids.edu.in",
                 details: {
-                    philosophy: "Focuses on providing a holistic education that blends academic excellence with co-curricular activities, preparing students for global challenges.",
-                    facilities: "Modern classrooms, science and computer labs, library, sports facilities, and transportation.",
+                    philosophy: "Aims to provide a holistic education that blends academic excellence with co-curricular activities, preparing students for global challenges.",
+                    facilities: "Modern classrooms, science and computer labs, a library, sports facilities, and transportation.",
                     parent_feedback: "Generally positive for its focus on modern education and technology integration.",
-                    admission_process: "Available on their website.",
+                    admission_process: "Details are available on their website.",
                     fee_structure: "Available on their website or upon inquiry."
-                }
-            },
-            {
-                name: "National Public School Whitefield",
-                address: "Channasandra Main Rd, Whitefield, Bengaluru",
-                curriculum: "CBSE",
-                distance: 3.6,
-                rating: 4.9,
-                highlights: "Part of the prestigious NPS Group, known for high-quality education, holistic development, and exceptional teacher dedication.",
-                phone: "+91 80 2845 6789",
-                email: "admissions@npswhitefield.com",
-                website: "npswhitefield.com",
-                details: {
-                    philosophy: "Committed to imparting high-quality education by providing students with opportunities to develop their creative and social skills in a safe, innovative, and healthy environment. Curriculum designed by seasoned NPS leaders and alumni.",
-                    facilities: "4-acre campus with state-of-the-art facilities. Specifics include well-equipped classrooms, labs, library, sports areas. Focus on progressive and holistic development.",
-                    parent_feedback: "Overwhelmingly positive, praising effective online learning, exceptional dedication and affection of teachers, emphasis on motor skill development, cultural understanding, engaging activities, and overall discipline. Teachers described as 'amazing,' 'patient,' 'exceptional,' and 'proactive'. School management and administration also commended.",
-                    admission_process: "Registrations for Academic Year 2025-26 are currently closed. Non-refundable registration fee of Rs. 1800 for application form submission.",
-                    fee_structure: "Full fee structure communicated at the time of admission."
-                }
-            },
-            {
-                name: "New Baldwin International Residential School",
-                address: "Ayappanagar, KR Puram, Bengaluru",
-                curriculum: "ICSE",
-                distance: 4.5,
-                rating: 4.2,
-                highlights: "Offers both day scholar and residential facilities with a large campus.",
-                phone: "+91 80 2567 1122",
-                email: "info@newbaldwin.com",
-                website: "newbaldwin.com",
-                details: {
-                    philosophy: "Aims to provide a comprehensive education that fosters intellectual, social, emotional, and physical development in a residential setting.",
-                    facilities: "Large campus with residential blocks, academic buildings, sports grounds, and dining facilities.",
-                    parent_feedback: "Generally positive for its residential facilities and large campus.",
-                    admission_process: "Available on their website or upon inquiry.",
-                    fee_structure: "Available on their website or upon inquiry."
-                }
-            },
-            {
-                name: "The Deen's Academy, Whitefield",
-                address: "ECC Road, Whitefield, Bengaluru",
-                curriculum: "CBSE",
-                distance: 9.5,
-                rating: 3.9,
-                highlights: "Established CBSE school providing a strong foundation for life, fostering exploration and creativity in a multicultural environment.",
-                phone: "+91 80 2845 6160",
-                email: "info@deensacademy.com",
-                website: "deensacademy.com",
-                details: {
-                    philosophy: "Ultimate objective is to provide a 'strong foundation for life', enabling students to thrive as 'dynamic and well-adjusted citizens of the world'. Empowers and transforms children, facilitating their transition from dependence to independence within a secure, stimulating, and multicultural environment.",
-                    facilities: "Transportation services, online classrooms, well-equipped labs and libraries, summer camps, after-school activities. Additional amenities include Deens Café, DeeNest (Day Care), Uniform Store, school communication channels, extended learning services, and various training programs for teachers, staff, and management.",
-                    parent_feedback: "Positive reviews commend excellent teachers, variety of extracurricular activities, and high quality of education. Availability of academic choices in 11th grade appreciated. Significant negative feedback regarding 'lack of transparency in the admission process', 'inadequate sports facilities', 'lack of focus on sports and co-curricular activities', and concerns about 'bullying not being adequately addressed'. Some reviews mention 'extra fees'.",
-                    admission_process: "Admission information available for its various campuses and grades.",
-                    fee_structure: "Detailed fee structure for academic year 2024-25 provided, outlining annual fees for different grades and campuses, fee inclusions/exclusions, additional charges (processing fee, sibling discount), and transportation fees based on distance."
-                }
-            },
-            {
-                name: "Vydehi School of Excellence",
-                address: "Near VIBGYOR High School, Whitefield, Bengaluru",
-                curriculum: "CBSE",
-                distance: 1.1,
-                rating: 4.1,
-                highlights: "Coeducational day school emphasizing academic excellence, holistic development, and individualized approach. Large green campus.",
-                phone: "+91 80 2841 2345",
-                email: "admissions@vydehischool.com",
-                website: "vydehischool.com",
-                details: {
-                    philosophy: "Aims to provide a positive, inclusive learning environment where students can achieve their full potential. Emphasizes academic excellence, holistic development (physical, moral, aesthetic, artistic, social, emotional), and preparing students for life. Recognizes uniqueness of each child and fosters individualized approach, blending free-play with structured activities.",
-                    facilities: "Libraries, technology resources, performing arts programs, outdoor education, sports facilities, meal plan, transportation services. Campus spans 200,000 sq. ft. within a 65-acre serene and green landscape.",
-                    parent_feedback: "Positive feedback includes appreciation for focus on sports and extracurricular activities, professional fees department, and supportive teachers (in some reviews). Some commend excellent support for diverse learning needs, good parent communication, innovative teaching methods, and excellent infrastructure. Numerous negative reviews highlight concerns such as changes in school timing, transport issues, uniform mismanagement, inexperienced or rude teachers, unresponsive helpdesk, and perceived lack of infrastructure. Some complain about high fees not matching quality, lack of extra effort for struggling students, and inconsistencies in religious rules. Critical note suggests 4-star rating might be outdated.",
-                    admission_process: "Online enquiry form, followed by application, personal interaction or diagnostic assessment, feedback, and fee payment.",
-                    fee_structure: "Detailed fee structure for 2025-26 available, covering application, admission, annual, and quarterly tuition fees, with a 10% sibling discount on tuition. Transport fees vary by distance and payment frequency."
                 }
             },
             {
@@ -330,34 +330,88 @@
                 curriculum: "CBSE",
                 distance: 7.2,
                 rating: 4.8,
-                highlights: "Focus on holistic development, modern infrastructure, and a wide range of extracurriculars.",
-                phone: "+91 80 2845 6789",
+                highlights: "Focus on holistic development, modern infrastructure, and a wide range of extracurriculars. Ranked among the best CBSE schools in Bangalore.",
+                phone: "+91 600 3000 700",
                 email: "info.kadugodi@vibgyorhigh.com",
-                website: "vibgyorhigh.com",
+                website: "https://www.vibgyorhigh.com",
                 details: {
                     philosophy: "Aims to provide a holistic education that nurtures intellectual, emotional, social, physical, and spiritual development.",
-                    facilities: "Modern classrooms, well-equipped labs, library, sports facilities, swimming pool, and transportation.",
+                    facilities: "Modern classrooms, well-equipped labs, a library, sports facilities, a swimming pool, and transportation.",
                     parent_feedback: "Generally positive for its infrastructure and extracurricular activities.",
+                    admission_process: "Admissions for Grade 11 for the 2025-26 academic year are open. The process involves contacting an admission counselor or filling out an inquiry form.",
+                    fee_structure: "Available on their website or upon inquiry."
+                }
+            },
+            {
+                name: "Silveroaks International School",
+                address: "Hennur-Bagalur Main Road, Bengaluru",
+                curriculum: "IB, CBSE",
+                distance: 12.0,
+                rating: 4.7,
+                highlights: "Offers a unique pedagogy and a strong focus on holistic development. It provides both IB and CBSE curricula.",
+                phone: "+91 80 2845 7788",
+                email: "info@silveroaks.co.in",
+                website: "https://www.silveroaks.co.in",
+                details: {
+                    philosophy: "Committed to fostering inquiring, knowledgeable, and caring young people. The school is known for its friendly and homely learning atmosphere.",
+                    facilities: "State-of-the-art campus with large classrooms, well-equipped labs (including science and computer labs), research center, and extensive sports facilities.",
+                    parent_feedback: "Highly positive for its IB curriculum and global exposure. Commended for its unique pedagogy and special education support.",
                     admission_process: "Available on their website.",
                     fee_structure: "Available on their website or upon inquiry."
                 }
             },
             {
-                name: "Whitefield Global School",
-                address: "Near Hope Farm Circle, Whitefield, Bengaluru",
-                curriculum: "IGCSE",
-                distance: 8.5,
-                rating: 4.5,
-                highlights: "Offers international curriculum (Cambridge), focusing on global perspectives and critical thinking.",
-                phone: "+91 80 2845 9988",
-                email: "admissions@whitefieldglobalschool.com",
-                website: "whitefieldglobalschool.com",
+                name: "Edify World School, Whitefield",
+                address: "Whitefield, Bengaluru",
+                curriculum: "CBSE, CAIE",
+                distance: 1.86,
+                rating: 4.3,
+                highlights: "Offers a flexible curriculum (3C, CBSE, CAIE) with a focus on personalized attention and creating a foundation for lifelong learning.",
+                phone: "+91 80 7654 3210",
+                email: "admissions@edifyworldschool.com",
+                website: "https://edifyworldschool.com",
                 details: {
-                    philosophy: "Committed to fostering global citizens through an international curriculum, promoting critical thinking and intercultural understanding.",
-                    facilities: "State-of-the-art infrastructure, well-equipped classrooms, labs, sports complex, and performing arts studios.",
-                    parent_feedback: "Positive for its international curriculum and global exposure.",
-                    admission_process: "Available on their website.",
-                    fee_structure: "Available on their website or upon inquiry."
+                    philosophy: "Aims to provide world-class K-12 education through an international curriculum. Core focus on creating a foundation for lifelong learning. Emphasizes personalized attention.",
+                    facilities: "Infrastructure aims to meet global standards. Specific details not extensively provided but the school has modern learning spaces.",
+                    parent_feedback: "Praises 'punctuality discipline' and 'balance between the studies as well as extracurricular activities'.",
+                    admission_process: "Admission inquiries can be made through an online form. Serves students from LK1 to Grade 8.",
+                    fee_structure: "Not specified; likely available upon direct inquiry."
+                }
+            },
+            {
+                name: "Valistus International School",
+                address: "Sy. No.96/2, Seegehalli, Bengaluru east, Whitefield Hoskote Main Road",
+                curriculum: "Cambridge",
+                distance: 1.00,
+                rating: 4.7,
+                highlights: "Cambridge International School with a focus on 'happy learners', world-class education, and a 'green and sustainable school' philosophy. Ranked #1 in Internationalism.",
+                phone: "+91 90712 91000",
+                email: "admissions@valistus.in",
+                website: "https://valistusinternationalschool.com",
+                details: {
+                    philosophy: "Fosters 'happy learners' and delivers 'a world-class education for a world-ready future'. The school is committed to being a 'green and sustainable school' integrated into its curriculum and infrastructure.",
+                    facilities: "A 6-acre green and sustainable campus with modern and technologically enabled labs, comprehensive sports facilities, and secure, GPS-tracked transportation with CCTV.",
+                    parent_feedback: "Notably positive, praising the 'out of the box learning model', 'curriculum, infrastructure, and minimal commute'. Commended for knowledgeable and caring teachers.",
+                    admission_process: "Admissions for the 2025-26 academic year are open. The process involves a personal interaction or diagnostic assessment.",
+                    fee_structure: "Detailed fee structure is available during prospective parent visiting hours."
+                }
+            },
+            {
+                name: "Sai Global School & PU College",
+                address: "Hoskote Road, Medahalli, Bengaluru",
+                curriculum: "ICSE",
+                distance: 1.07,
+                rating: 4.2,
+                highlights: "ICSE affiliated, known for holistic education, an enriching environment, and a peaceful, green study environment away from crowds.",
+                phone: "+91 80 2567 8901",
+                email: "admissions@saiglobalschool.com",
+                website: "https://saiglobalschool.com",
+                details: {
+                    philosophy: "Aims to provide qualitative, innovative, and technology-driven career-oriented education. The vision is to facilitate a child's quest for knowledge and empower them to lead a quality life.",
+                    facilities: "Smart classrooms, computer labs, science labs, a library, a playground, and is covered with full of greenery.",
+                    parent_feedback: "Commended for the school's holistic education approach, enriching environment, and effective blend of academics and extracurriculars.",
+                    admission_process: "Obtain application forms from the school office, followed by an interactive session.",
+                    fee_structure: "Available upon contacting the Admin Manager."
                 }
             },
             {
@@ -369,49 +423,49 @@
                 highlights: "Strong emphasis on competitive exam preparation alongside the standard curriculum.",
                 phone: "+91 80 2567 3344",
                 email: "info@narayanaetechnoschools.com",
-                website: "narayanaetechnoschools.com",
+                website: "https://narayanaetechnoschools.com",
                 details: {
-                    philosophy: "Focuses on integrated learning, preparing students for both board exams and competitive entrance examinations.",
-                    facilities: "Smart classrooms, labs, library, and dedicated coaching facilities.",
-                    parent_feedback: "Mixed, some appreciate the academic rigor, others find it too focused on exams.",
-                    admission_process: "Available on their website.",
+                    philosophy: "Focuses on integrated learning, preparing students for both board exams and competitive entrance examinations. The curriculum is rigorous and academically focused.",
+                    facilities: "Smart classrooms, labs, a library, and dedicated coaching facilities.",
+                    parent_feedback: "Mixed reviews. Some parents appreciate the academic rigor, while others find it to be too focused on exams at the expense of other activities. Some negative reviews regarding fee management and communication.",
+                    admission_process: "Details are available on their website.",
                     fee_structure: "Available on their website or upon inquiry."
                 }
             },
             {
-                name: "Glentree Academy",
-                address: "Kanakasree Layout, Medahalli, Bengaluru",
+                name: "Delhi Public School Whitefield",
+                address: "Survey No.18/1B, 18/2, 18/3A, Behind Sai Baba Ashram, Whitefield, Bengaluru, Karnataka 560066",
                 curriculum: "CBSE",
-                distance: 2.8,
-                rating: 4.3,
-                highlights: "Focuses on a balanced approach between academics, sports, and arts.",
-                phone: "+91 80 2845 5566",
-                email: "admissions@glentreeacademy.com",
-                website: "glentreeacademy.com",
+                distance: 10.5,
+                rating: 4.6,
+                highlights: "A prestigious school known for its strong academic curriculum, extensive extracurricular programs, and excellent facilities. It focuses on experiential learning.",
+                phone: "+91 80 2845 2345",
+                email: "admissions@dpswhitefield.com",
+                website: "https://www.dpswhitefield.com",
                 details: {
-                    philosophy: "Aims to provide a comprehensive education that balances academic excellence with co-curricular activities, fostering all-round development.",
-                    facilities: "Modern classrooms, labs, library, and sports facilities.",
-                    parent_feedback: "Generally positive for its balanced approach and supportive environment.",
-                    admission_process: "Available on their website.",
-                    fee_structure: "Available on their website or upon inquiry."
+                    philosophy: "Aims to provide a comprehensive education that fosters intellectual, physical, and emotional development. The school encourages a collaborative learning environment and global citizenship.",
+                    facilities: "Spacious classrooms, well-equipped science and computer labs, a large library, sports facilities, and dedicated spaces for arts and music.",
+                    parent_feedback: "Highly positive feedback regarding the school's reputation, academic standards, and diverse extracurricular offerings.",
+                    admission_process: "Admission details and application forms are available on the school's official website.",
+                    fee_structure: "Contact the school for the latest fee structure."
                 }
             },
             {
-                name: "Silveroaks International School",
-                address: "Hennur-Bagalur Main Road, Bengaluru",
-                curriculum: "IB",
-                distance: 12.0,
-                rating: 4.7,
-                highlights: "Offers the International Baccalaureate (IB) curriculum, known for its rigorous, inquiry-led approach.",
-                phone: "+91 80 2845 7788",
-                email: "info@silveroaks.co.in",
-                website: "silveroaks.co.in",
+                name: "Euro School Whitefield",
+                address: "36/183, Behind KPS Yard, Hoodi, Whitefield, Bengaluru, Karnataka 560048",
+                curriculum: "CBSE",
+                distance: 8.9,
+                rating: 4.3,
+                highlights: "Champions a dynamic learning environment and has received numerous awards for its academic and co-curricular programs. It is known for its modern infrastructure and innovative teaching.",
+                phone: "+91 80 2845 3344",
+                email: "info.whitefield@euroschoolindia.com",
+                website: "https://www.euroschoolindia.com/campus/whitefield",
                 details: {
-                    philosophy: "Committed to the IB philosophy of fostering inquiring, knowledgeable, and caring young people who help to create a better and more peaceful world.",
-                    facilities: "State-of-the-art campus with modern classrooms, specialized labs, extensive sports facilities, and performing arts studios.",
-                    parent_feedback: "Highly positive for its IB curriculum, global exposure, and holistic development.",
-                    admission_process: "Available on their website.",
-                    fee_structure: "Available on their website or upon inquiry."
+                    philosophy: "The school's philosophy is centered on fostering a love for learning and nurturing a child's potential through a well-rounded curriculum. It promotes critical thinking and creativity.",
+                    facilities: "Well-maintained classrooms, science labs, computer labs, a library, and extensive sports facilities.",
+                    parent_feedback: "Generally positive feedback on the school's infrastructure and holistic approach to education.",
+                    admission_process: "Admission forms can be obtained from the school office or their website. The process involves an interview and a screening test.",
+                    fee_structure: "Contact the school for the latest fee structure."
                 }
             }
         ];
@@ -446,7 +500,7 @@
             });
             const curricula = ['All', ...Array.from(allCurricula).sort()];
             
-            curriculumEl.innerHTML = ''; // Clear existing buttons
+            curriculumEl.innerHTML = '';
             curricula.forEach(c => {
                 const button = document.createElement('button');
                 button.textContent = c;
@@ -458,7 +512,7 @@
             });
 
             const distances = ['All', '< 2 km', '2-5 km', '5-10 km', '> 10 km'];
-            distanceEl.innerHTML = ''; // Clear existing buttons
+            distanceEl.innerHTML = '';
             distances.forEach(d => {
                 const button = document.createElement('button');
                 button.textContent = d;
@@ -517,7 +571,7 @@
                                     <ul>
                                         ${school.phone? `<li><strong>Phone:</strong> <a href="tel:${school.phone}" class="text-blue-600 hover:underline">${school.phone}</a></li>` : ''}
                                         ${school.email? `<li><strong>Email:</strong> <a href="mailto:${school.email}" class="text-blue-600 hover:underline">${school.email}</a></li>` : ''}
-                                        ${school.website? `<li><strong>Website:</strong> <a href="http://${school.website}" target="_blank" class="text-blue-600 hover:underline">${school.website}</a></li>` : ''}
+                                        ${school.website? `<li><strong>Website:</strong> <a href="${school.website}" target="_blank" class="text-blue-600 hover:underline">${school.website}</a></li>` : ''}
                                     </ul>
                                 </div>
                             </details>
@@ -536,7 +590,7 @@
                 chartInstance.destroy();
             }
             
-            const sortedData = [...data].sort((a, b) => b.rating - a.rating); // Sort descending for chart
+            const sortedData = [...data].sort((a, b) => b.rating - a.rating);
 
             chartInstance = new Chart(ctx, {
                 type: 'bar',
@@ -594,7 +648,6 @@
                                 autoSkip: false,
                                 callback: function(value) {
                                     const label = this.getLabelForValue(value);
-                                    // Wrap labels longer than 25 characters
                                     const originalLabel = this.getLabelForValue(value);
                                     const maxLength = 25;
                                     if (originalLabel.length > maxLength) {
